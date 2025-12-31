@@ -1,0 +1,90 @@
+/**index.scss**/
+page {
+  height: 100vh;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  /* 增加一些背景微光效果 */
+  background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+}
+
+/* 状态提示栏 */
+.status-box {
+  position: absolute;
+  top: 15%;
+  width: 100%;
+  text-align: center;
+  
+  .status-value {
+    font-size: 32rpx;
+    color: #666;
+    letter-spacing: 2rpx;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+}
+
+/* 核心倒计时圆环 */
+.timer-circle {
+  width: 500rpx;
+  height: 500rpx;
+  border-radius: 50%;
+  border: 4rpx solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.5s ease;
+
+  .time-display {
+    font-size: 100rpx;
+    font-weight: 200; /* 极细字体 */
+    color: #fff;
+    font-variant-numeric: tabular-nums; /* 防止数字跳动 */
+  }
+
+  /* 专注模式下的样式变化 */
+  &.focus-mode {
+    border-color: #00ff88;
+    box-shadow: 0 0 50rpx rgba(0, 255, 136, 0.2);
+    animation: breathe 4s infinite ease-in-out;
+    
+    .time-display {
+      color: #00ff88;
+      text-shadow: 0 0 20rpx rgba(0, 255, 136, 0.5);
+    }
+  }
+}
+
+/* 每日语录 */
+.motto-box {
+  position: absolute;
+  bottom: 15%;
+  width: 80%;
+  text-align: center;
+  
+  .motto-text {
+    font-size: 28rpx;
+    color: #888;
+    font-style: italic;
+    line-height: 1.5;
+  }
+}
+
+/* 呼吸动画 */
+@keyframes breathe {
+  0% { box-shadow: 0 0 20rpx rgba(0, 255, 136, 0.1); border-color: rgba(0, 255, 136, 0.4); }
+  50% { box-shadow: 0 0 60rpx rgba(0, 255, 136, 0.4); border-color: #00ff88; }
+  100% { box-shadow: 0 0 20rpx rgba(0, 255, 136, 0.1); border-color: rgba(0, 255, 136, 0.4); }
+}

@@ -1,0 +1,32 @@
+<view class="container">
+  <view class="header">
+    <text class="title">今日作战计划</text>
+    <text class="subtitle">锁定目标，开启引力场</text>
+  </view>
+
+  <view class="input-section">
+    <input class="task-input" placeholder="输入新的挑战任务..." bindinput="onInput" value="{{inputValue}}" />
+    <view class="flow-switch-box">
+      <text>心流模式</text>
+      <switch checked="{{isFlowMode}}" bindchange="onSwitchChange" color="#00ff88" />
+    </view>
+    <button class="add-btn" bindtap="addTask">加入计划</button>
+  </view>
+
+  <scroll-view scroll-y class="task-list">
+    <view class="task-item {{item.completed ? 'completed' : ''}}" wx:for="{{tasks}}" wx:key="id">
+      <view class="task-info" bindtap="toggleTask" data-id="{{item.id}}">
+        <icon type="{{item.completed ? 'success' : 'circle'}}" size="20" color="#00ff88" />
+        <text class="task-text">{{item.content}}</text>
+        <view wx:if="{{item.isFlow}}" class="flow-tag">引力场</view>
+      </view>
+      
+      <button wx:if="{{item.isFlow && !item.completed}}" 
+              class="start-flow-btn" 
+              bindtap="goToFocus" 
+              data-content="{{item.content}}">开启引力</button>
+      
+      <text class="delete-icon" bindtap="deleteTask" data-id="{{item.id}}">×</text>
+    </view>
+  </scroll-view>
+</view>

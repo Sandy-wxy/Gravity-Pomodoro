@@ -1,0 +1,61 @@
+.container {
+  min-height: 100vh;
+  background: #0a0a0a;
+  padding: 40rpx;
+  color: #fff;
+}
+.header { margin-bottom: 40rpx; }
+.title { font-size: 48rpx; font-weight: bold; display: block; color: #00ff88; }
+.subtitle { font-size: 24rpx; color: #666; }
+
+.input-section {
+  background: #1a1a1a;
+  padding: 30rpx;
+  border-radius: 20rpx;
+  margin-bottom: 40rpx;
+}
+.task-input {
+  border-bottom: 1rpx solid #333;
+  padding: 20rpx 0;
+  margin-bottom: 20rpx;
+}
+.flow-switch-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28rpx;
+  margin-bottom: 30rpx;
+}
+.add-btn {
+  background: #00ff88;
+  color: #000;
+  font-weight: bold;
+}
+
+.task-item {
+  background: #1a1a1a;
+  margin-bottom: 20rpx;
+  padding: 30rpx;
+  border-radius: 15rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.task-info { display: flex; align-items: center; flex: 1; }
+.task-text { margin-left: 20rpx; font-size: 30rpx; }
+.flow-tag {
+  font-size: 20rpx;
+  background: rgba(0, 255, 136, 0.2);
+  color: #00ff88;
+  padding: 4rpx 12rpx;
+  border-radius: 6rpx;
+  margin-left: 15rpx;
+}
+.start-flow-btn {
+  font-size: 24rpx;
+  background: #00ff88;
+  color: #000;
+  margin-right: 20rpx;
+  padding: 0 20rpx;
+}
+.completed .task-text { text-decoration: line-through; color: #444; }

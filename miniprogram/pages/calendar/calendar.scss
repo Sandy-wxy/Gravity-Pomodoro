@@ -1,0 +1,209 @@
+/* pages/calendar/calendar.scss */
+.container {
+  min-height: 100vh;
+  background: #0a0a0a;
+  color: #fff;
+  padding: 30rpx; /* 稍微增加一点边距，让大方块不至于太贴边 */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- 头部 --- */
+.header {
+  display: flex;
+  /* 让“日期容器”在左，“按钮容器”在右，两端对齐 */
+  justify-content: space-between; 
+  align-items: center;
+  margin-bottom: 40rpx;
+  padding: 0 10rpx;
+  
+  .year-month {
+    display: flex;
+    align-items: center;
+    /* 让年份和月份紧挨着，中间留点缝隙 */
+    gap: 20rpx; 
+    
+    font-size: 40rpx;
+    font-weight: bold;
+    color: #00ff88;
+    
+    /* 移除之前的 margin-right，改用上面的 gap 控制间距 */
+    .year { margin-right: 0; }
+  }
+
+  .controls {
+    display: flex;
+    gap: 20rpx;
+    .btn {
+      padding: 10rpx 24rpx;
+      background: #222;
+      border-radius: 12rpx;
+      font-size: 28rpx;
+      color: #fff;
+    }
+  }
+}
+/* --- 星期行 (Header) --- */
+.week-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7列等宽 */
+  gap: 62rpx; /* 间距 */
+  margin-bottom: 40rpx; /* 行与行之间的间距，保持和 gap 一致 */
+  
+  .week-item {
+    /* 【关键】宽高比 1:1，强制变成正方形 */
+    aspect-ratio: 1; 
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    font-size: 28rpx;
+    color: #666;
+    font-weight: bold;
+    
+    /* 如果你想让星期也有背景色，可以把下面这行注释解开 */
+    /* background: #111; border-radius: 12rpx; */
+  }
+}
+
+/* --- 日期网格 (Body) --- */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7列等宽 */
+  gap: 48rpx; /* 必须和 week-row 的 gap 完全一致 */
+  margin-bottom: 40rpx;
+}
+
+.day-cell {
+  /* 【关键】宽高比 1:1，强制变成正方形 */
+  aspect-ratio: 1;
+  
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16rpx;
+  background: #151515;
+  
+
+  /* 【核心修复】预先加上透明边框，占住 2rpx 的位置 */
+  border: 2rpx solid transparent; 
+  /* 加上这个属性，确保边框是算在盒子内部的，不会撑大 */
+  box-sizing: border-box;
+  &.empty {
+    background: transparent;
+    pointer-events: none; /* 空格子不可点击 */
+  }
+  
+  &.selected {
+    border: 2rpx solid #00ff88;
+    background: rgba(0, 255, 136, 0.1);
+  }
+  
+  &.today {
+    color: #00ff88;
+    font-weight: 900;
+  }
+  
+  .num {
+    font-size: 34rpx;
+    font-weight: 500;
+  }
+  
+  .dot {
+    width: 8rpx;
+    height: 8rpx;
+    background: #00ff88;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 15%; /* 使用百分比，适应正方形大小 */
+  }
+}
+
+/* --- 底部数据面板 --- */
+.data-panel {
+  background: #1a1a1a;
+  border-radius: 24rpx;
+  padding: 150rpx;
+  flex: 1; /* 撑满剩余空间 */
+  display: flex;
+  flex-direction: column;
+  min-height: 0; /* 防止 flex 子元素溢出 */
+  
+  .panel-title {
+    font-size: 30rpx;
+    font-weight: bold;
+    margin-bottom: 30rpx;
+    border-left: 8rpx solid #00ff88;
+    padding-left: 20rpx;
+  }
+}
+
+.stats-row {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #333;
+  
+  .stat-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .val {
+      font-size: 40rpx;
+      font-weight: bold;
+      color: #fff;
+      &.highlight { color: #00ff88; }
+    }
+    .label {
+      font-size: 22rpx;
+      color: #666;
+      margin-top: 8rpx;
+    }
+  }
+}
+
+.log-list {
+  flex: 1; 
+  overflow-y: auto;
+}
+
+.log-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #222;
+  
+  .status-dot {
+    width: 16rpx;
+    height: 16rpx;
+    border-radius: 50%;
+    margin-right: 20rpx;
+    &.green { background: #00ff88; box-shadow: 0 0 10rpx rgba(0,255,136,0.5); }
+    &.gray { background: #444; }
+  }
+  
+  .log-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    .log-name { font-size: 28rpx; }
+    .log-time { font-size: 22rpx; color: #666; margin-top: 6rpx; }
+  }
+  
+  .log-res {
+    font-size: 24rpx;
+    color: #888;
+  }
+}
+
+.empty-tip {
+  text-align: center;
+  color: #444;
+  margin-top: 40rpx;
+  font-size: 26rpx;
+}

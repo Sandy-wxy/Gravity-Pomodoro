@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/todo/todo",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/calendar/calendar"
+    
+  ],
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#00ff88",
+    "backgroundColor": "#1a1a1a",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/todo/todo",
+        "text": "计划"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "引力场"
+      },
+      {
+        "pagePath": "pages/calendar/calendar",
+        "text": "足迹"
+      }
+    ]
+  },
+  "window": {
+    "navigationBarBackgroundColor": "#0a0a0a",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "引力番茄"
+  },
+  "style": "v2",
+  "rendererOptions": {
+    "skyline": {
+      "defaultDisplayBlock": true,
+      "defaultContentBox": true,
+      "tagNameStyleIsolation": "legacy",
+      "disableABTest": true,
+      "sdkVersionBegin": "3.0.0",
+      "sdkVersionEnd": "15.255.255"
+    }
+  },
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

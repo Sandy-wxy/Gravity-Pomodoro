@@ -1,0 +1,32 @@
+/* pages/login/login.scss */
+.container {
+  height: 100vh;
+  background-color: #050505;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card {
+  width: 80%;
+  text-align: center;
+  padding: 60rpx;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 40rpx;
+  border: 1rpx solid rgba(255, 255, 255, 0.1);
+}
+
+.logo-icon { font-size: 120rpx; margin-bottom: 20rpx; display: block; }
+.app-name { font-size: 48rpx; font-weight: bold; color: #00ff88; margin-bottom: 40rpx; }
+.slogan { font-size: 28rpx; color: #888; display: block; margin-bottom: 80rpx; }
+
+.login-btn {
+  background: #00ff88;
+  color: #000;
+  border-radius: 50rpx;
+  font-weight: bold;
+  padding: 20rpx 0;
+  box-shadow: 0 10rpx 30rpx rgba(0, 255, 136, 0.3);
+}
+
+.hint { font-size: 22rpx; color: #444; margin-top: 40rpx; display: block; }

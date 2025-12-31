@@ -1,0 +1,16 @@
+<view class="container">
+  <view class="login-card">
+    <view class="logo-box">
+      <text class="logo-icon">🪐</text>
+      <view class="app-name">引力番茄</view>
+    </view>
+    
+    <text class="slogan">逃离信息干扰，找回你的学习引力</text>
+    
+    <button class="login-btn" bindtap="onLogin">
+      授权登录并开启计划
+    </button>
+    
+    <text class="hint">登录后将自动同步你的专注足迹至云端</text>
+  </view>
+</view>

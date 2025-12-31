@@ -1,0 +1,13 @@
+<view class="container">
+  <view class="status-box">
+    <text class="status-value">{{status}}</text>
+  </view>
+
+  <view class="timer-circle {{isFocusing ? 'focus-mode' : ''}}">
+    <text class="time-display">{{displayTime}}</text>
+  </view>
+
+  <view class="motto-box">
+    <text class="motto-text">“{{motto}}”</text>
+  </view>
+</view>
